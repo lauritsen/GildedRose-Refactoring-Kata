@@ -2,4 +2,8 @@ node {
     stage('Pull from git'){
         checkout scm
     }
+
+    stage('Run main'){
+        sh 'docker run -i -v $PWD:/usr/src/dart -w /usr/src/dart --rm google/dart:latest dart bin/main.dart'
+    }
 }
